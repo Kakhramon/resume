@@ -1,14 +1,25 @@
 <template>
-  <v-card color="grey lighten-4" light>
+  <v-card
+    color="grey lighten-4"
+    light
+  >
     <v-card-text>
       <content-section title="Who am I?">
-        I'm a developer born in Uzbekistan and backend developer in InVan!<br />
+        I'm a developer born in Uzbekistan and android and back-end developer in InVan!<br>
         I'm interested and skilled in different topics of Information Technology
         including programming, web development, and data science.
       </content-section>
-      <content-section v-if="educations" title="Education">
-        <v-layout v-for="(education, i) in educations" :key="i">
-          <v-flex md4> {{ education.from }} - {{ education.to }} </v-flex>
+      <content-section
+        v-if="educations"
+        title="Education"
+      >
+        <v-layout
+          v-for="(education, i) in educations"
+          :key="i"
+        >
+          <v-flex md4>
+            {{ education.from }} - {{ education.to }}
+          </v-flex>
           <v-flex md8>
             <strong v-if="education.title">{{ education.title }}</strong>
             <div v-if="education.location">
@@ -20,14 +31,32 @@
           </v-flex>
         </v-layout>
       </content-section>
-      <content-section v-if="skills" title="Skills">
+      <content-section
+        v-if="skills"
+        title="Skills"
+      >
         <v-layout wrap>
           <template v-for="(skill, i) in skills">
-            <v-flex v-if="skill.divider" :key="i" md12 xs12 mb-4 />
-            <v-flex v-else :key="i" md6 xs12>
+            <v-flex
+              v-if="skill.divider"
+              :key="i"
+              md12
+              xs12
+              mb-4
+            />
+            <v-flex
+              v-else
+              :key="i"
+              md6
+              xs12
+            >
               <div class="mr-2 ml-2">
                 <div class="align-center">
-                  <v-icon v-if="skill.icon" small>
+                  <v-icon
+                    v-if="skill.icon"
+                    small
+                    :color="skill.color"
+                  >
                     {{ skill.icon }}
                   </v-icon>
                   <img
@@ -36,7 +65,7 @@
                     height="15"
                     :src="publicPath(skill.image)"
                     alt=""
-                  />
+                  >
                   {{ skill.title }}
                 </div>
                 <v-progress-linear
@@ -52,150 +81,138 @@
       </content-section>
 
       <content-section title="Work samples">
-        <div v-for="(work, i) in works" :key="i">
+        <div
+          v-for="(work, i) in works"
+          :key="i"
+        >
           <v-layout class="my-2">
-            <v-flex md6> {{ work.title }} </v-flex>
-            <v-flex md6 class="right--text">
+            <v-flex md6>
+              {{ work.title }}
+            </v-flex>
+            <v-flex
+              md6
+              class="right--text"
+            >
               <a
                 style="text-decoration: none"
                 target="_blank"
                 :href="work.link"
-                >{{ work.short_name }}</a
-              >
+              >{{ work.short_name }}</a>
             </v-flex>
           </v-layout>
-          <hr />
+          <hr>
         </div>
-        <h3 class="mt-4">And Some Works could not be shown here ...</h3>
+        <h3 class="mt-4">
+          And Some Works could not be shown here ...
+        </h3>
       </content-section>
     </v-card-text>
   </v-card>
 </template>
 
 <script>
-import ContentSection from "@/views/dark-template/content/Section";
+import ContentSection from '@/views/dark-template/content/Section'
 export default {
-  name: "MainContent",
+  name      : 'MainContent',
   components: { ContentSection },
-  data: () => ({
+  data      : () => ({
     educations: [
       {
-        from: "2017",
-        to: "2021 (not finished yet)",
-        title: "Bachelor's degree, Information Technology",
-        location: "TUIT",
+        from       : '2018',
+        to         : '2022',
+        title      : "Bachelor's degree, Information Technology",
+        location   : 'TUIT',
         description:
-          "Became a member of Tashkent University of Information technologies",
+          'Became a member of Tashkent University of Information technologies',
       },
     ],
     skills: [
       {
-        title: "JavaScript",
-        icon: "mdi-language-javascript",
+        title: 'Android',
+        icon : 'mdi-android',
         value: 88,
+        color: '#4CDD8E',
       },
       {
-        title: "Node js",
-        icon: "mdi-nodejs",
+        title: 'Node js',
+        icon : 'mdi-nodejs',
+        value: 50,
+        color: '#73AB63',
+      },
+      {
+        title: 'Fastify',
+        value: 50,
+        image: '/img/imgs/fastify.jpg',
+      },
+      {
+        title: 'TypeScript',
+        value: 60,
+        icon : 'mdi-language-typescript',
+        color: '#2F74C0',
+      },
+      {
+        title: 'MongoDB',
+        image: '/img/imgs/mongodb.jpg',
+        value: 50,
+      },
+      {
+        title: 'Ubuntu Server',
+        icon : 'mdi-ubuntu',
+        value: 50,
+        color: '#D73820',
+      },
+      {
+        title: 'Kotlin',
         value: 90,
+        icon : 'mdi-language-kotlin',
+        color: '#E07345',
       },
       {
-        title: "Fastify",
-        value: 92,
-        image: "/img/imgs/fastify.jpg",
+        title: 'Java',
+        icon : 'mdi-language-java',
+        value: 79,
+        color: '#5382A1',
       },
       {
-        title: "Express JS",
-        value: 62,
-        image: "/img/imgs/express.jpg",
-      },
-      {
-        title: "TypeScript",
-        value: 82,
-        image: "/img/imgs/typescript.jpg",
-      },
-      {
-        title: "Telegraf js",
-        image: "/img/imgs/telegraf.jpg",
-        value: 95,
-      },
-      {
-        title: "MongoDB",
-        image: "/img/imgs/mongodb.jpg",
-        value: 85,
-      },
-      {
-        title: "PostgreSQL",
-        image: "/img/imgs/posgress.jpg",
-        value: 65,
-      },
-      {
-        title: "Vue.js Framework",
-        icon: "mdi-vuejs",
-        value: 70,
-      },
-      {
-        title: "Vuetify",
-        image: "/img/imgs/vuetify.jpg",
-        value: 70,
-      },
-      {
-        title: "Ubuntu Server",
-        icon: "mdi-ubuntu",
-        value: 70,
-      },
-      {
-        title: "Nginx Server",
-        image: "/img/imgs/nginx.jpg",
-        value: 70,
-      },
-      {
-        title: "Git",
-        icon: "mdi-git",
+        title: 'Git',
+        icon : 'mdi-git',
         value: 67,
+        color: '#E84E31',
+      },
+      {
+        title: 'C++',
+        icon : 'mdi-language-cpp',
+        value: 67,
+        color: '#9A6ED2',
       },
       { divider: true },
     ],
     works: [
       {
-        title: "Backend of InVan",
-        short_name: "InVan POS",
-        link: "https://play.google.com/store/apps/details?id=com.qs.anorpos",
+        title     : 'Pos app',
+        short_name: 'InVan POS',
+        link      : 'https://play.google.com/store/apps/details?id=com.qs.anorpos',
       },
       {
-        title: "Back Office of InVan",
-        short_name: "InVan Back Office",
-        link: "http://back-office.invan.uz",
+        title     : 'Invan boss',
+        short_name: 'Boss app',
+        link      : 'https://play.google.com/store/apps/details?id=uz.inone.bos',
       },
       {
-        title: "Backend of RegBooks",
-        short_name: "RegBooks App",
-        link: "https://play.google.com/store/apps/details?id=uz.rng.regbooks",
+        title     : 'InVan Inventory',
+        short_name: 'Inventory management',
+        link      :
+          'https://play.google.com/store/apps/details?id=uz.invan.invaninventory',
       },
       {
-        title: "Registon bot",
-        short_name: "@rgn_testbot",
-        link: "https://t.me/rgn_testbot",
-      },
-      {
-        title: "Imtihon bot",
-        short_name: "@Repetitsion_imtihon_bot",
-        link: "https://t.me/Repetitsion_imtihon_bot",
-      },
-      {
-        title: "TestMate bot",
-        short_name: "@TestMate_Bot",
-        link: "https://t.me/TestMate_Bot",
-      },
-      {
-        title: "Backend of Atom Express",
-        short_name: "Atom Express App",
-        link:
-          "https://play.google.com/store/apps/details?id=uz.red.atomexpress",
+        title     : 'Atom express',
+        short_name: 'Food delivery',
+        link      :
+          'https://play.google.com/store/apps/details?id=uz.red.atomexpress',
       },
     ],
   }),
-};
+}
 </script>
 
 <style scoped>

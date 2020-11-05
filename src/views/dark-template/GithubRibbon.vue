@@ -38,9 +38,9 @@
 
 <script>
 export default {
-  name: "GithubRibbon",
-  data: () => ({ url: "https://github.com/yusufjonnazarov" }),
-};
+  name: 'GithubRibbon',
+  data: () => ({ url: 'https://github.com/Kakhramon' }),
+}
 </script>
 
 <style scoped>

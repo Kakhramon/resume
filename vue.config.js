@@ -8,7 +8,10 @@ module.exports = {
         test   : require('path').resolve(__dirname, 'node_modules/leader-line/'),
         loader : 'skeleton-loader',
         options: { procedure: (content) => `${content} export default LeaderLine` },
+
       },
+      // { test: /\.vue$/, loader: 'vue-loader' },
+      // { test: /\.vue\.html$/, loader: 'vue-loader' }
     ]
   },
 }
