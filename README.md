@@ -4,7 +4,7 @@
 
 1. Clone this repository.
 ```
-git clone https://github.com/yusufjonnazarov/Resume.git
+git clone https://github.com/Kakhramon/resume.git
 ```
 
 2. Go to the cloned directory (e.g. `cd Resume`).
@@ -18,5 +18,5 @@ git clone https://github.com/yusufjonnazarov/Resume.git
 6. Build it with `npm run build`.
 
 ## Live demo 
- [yusufjon.uz](https://yusufjon.uz)
+ [kahero.uz](https://kahero.uz)
 
