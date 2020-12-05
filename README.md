@@ -18,5 +18,5 @@ git clone https://github.com/Kakhramon/resume.git
 6. Build it with `npm run build`.
 
 ## Live demo 
- [kahero.uz](https://kahero.uz)
+ [kahero.uz](http://kahero.uz)
 
